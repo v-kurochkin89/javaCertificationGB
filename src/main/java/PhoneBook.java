@@ -27,5 +27,10 @@ public class PhoneBook {
         phoneBook.remove(name);
     }
 
-
+    // вывод телефонной книги с сортировкой по количеству номеров
+    public void printSortedPhoneBook() {
+        phoneBook.entrySet().stream()
+                .sorted((entry1, entry2) -> Integer.compare(entry2.getValue().size(), entry1.getValue().size()))
+                .forEach(entry -> System.out.println(entry.getKey() + ": " + entry.getValue()));
+    }
 }
